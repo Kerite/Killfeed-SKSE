@@ -166,6 +166,13 @@ if ($Mode -eq 'COPY') {
             "- Shockwave files copied" | Log
         }
 
+        # translations
+        if (Test-Path "$PSScriptRoot/Interface/Translations/*.txt" -PathType Leaf) {
+            New-Item -Type Directory "$Data/Interface/Translations" -Force | Out-Null
+            Copy-Item "$PSScriptRoot/Interface/Translations" "$Data/Interface" -Recurse -Force
+            "- Translations files copied" | Log
+        }
+
         # papyrus
         if (Test-Path "$PSScriptRoot/Scripts/*.pex" -PathType Leaf) {
             New-Item -Type Directory "$Data/Scripts" -Force | Out-Null
