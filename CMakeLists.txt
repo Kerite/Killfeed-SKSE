@@ -13,7 +13,7 @@ include(GNUInstallDirs)
 # info
 project(
 	KillFeed
-	VERSION 1.0.0
+	VERSION 1.0.2
 	LANGUAGES CXX
 )
 
@@ -52,6 +52,7 @@ source_group(
 add_subdirectory($ENV{CommonLibSSEPath} CommonLibSSE)
 add_subdirectory($ENV{DKUtilPath} DKUtil)
 find_package(spdlog CONFIG REQUIRED)
+find_path(SIMPLEINI_INCLUDE_DIRS "ConvertUTF.c")
 
 # cmake target
 # runtime
@@ -72,6 +73,7 @@ target_include_directories(
 		${CMAKE_CURRENT_BINARY_DIR}/include
 		${CMAKE_CURRENT_SOURCE_DIR}/include
 		${CMAKE_CURRENT_SOURCE_DIR}/src
+		${SIMPLEINI_INCLUDE_DIRS}
 )
 
 # linkage

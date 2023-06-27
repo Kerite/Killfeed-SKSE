@@ -113,6 +113,8 @@ using namespace REL::literals;
 // Plugin
 #include "Plugin.h"
 
+#include "SimpleIni.h"
+
 // DKUtil
 #include "DKUtil/Config.hpp"
 #include "DKUtil/Extra.hpp"

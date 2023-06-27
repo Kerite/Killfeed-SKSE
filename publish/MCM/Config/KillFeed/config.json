@@ -1,0 +1,66 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Exit-9B/MCM-Helper/main/docs/config.schema.json",
+    "modName": "KillFeed",
+    "displayName": "$KillFeed_DisplayName",
+    "minMcmVersion": 13,
+    "cursorFillMode": "topToBottom",
+    "pages": [
+        {
+            "pageDisplayName": "$KillFeed_MCMPageMain",
+            "content": [
+                {
+                    "id": "iKillFeedToggleKey:Main",
+                    "text": "$KillFeed_MCMToggleKey",
+                    "type": "keymap",
+                    "help": "$KillFeed_MCMToggleKeyHelp",
+                    "valueOptions": {
+                        "sourceType": "ModSettingInt",
+                        "defaultValue": 88
+                    }
+                },
+                {
+                    "id": "sKillFeedColor:Main",
+                    "text": "$KillFeed_MCMNotificationColor",
+                    "type": "input",
+                    "help": "$KillFeed_MCMNotificationColorHelp"
+                },
+                {
+                    "id": "bOnlyUniqueNPC:Main",
+                    "text": "$KillFeed_MCMOnlyUniqueNPC",
+                    "type": "toggle",
+                    "help": "$KillFeed_MCMOnlyUniqueNPCHelp",
+                    "valueOptions": {
+                        "sourceType": "ModSettingBool",
+                        "defaultValue": false
+                    }
+                },
+                {
+                    "id": "bShowFormID:Main",
+                    "text": "$KillFeed_MCMShowFormID",
+                    "type": "toggle",
+                    "help": "$KillFeed_MCMShowFormIDHelp",
+                    "valueOptions": {
+                        "sourceType": "ModSettingBool",
+                        "defaultValue": true
+                    }
+                },
+                {
+                    "id": "bPlaySoundFX:Sound",
+                    "text": "$KillFeed_MCMPlaySound",
+                    "type": "toggle",
+                    "help": "$KillFeed_MCMPlaySoundHelp",
+                    "valueOptions": {
+                        "sourceType": "ModSettingBool",
+                        "defaultValue": false
+                    }
+                },
+                {
+                    "id": "sSoundFx:Sound",
+                    "text": "$KillFeed_MCMSoundFX",
+                    "type": "input",
+                    "help": "$KillFeed_MCMSoundFXHelp"
+                }
+            ]
+        }
+    ]
+}

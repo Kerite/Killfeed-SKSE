@@ -1,10 +1,14 @@
 ﻿#include "EventsHandler.h"
+#include "Papyrus.h"
+#include "Settings.h"
 
 void MessageListener(SKSE::MessagingInterface::Message* a_msg) noexcept
 {
 	switch (a_msg->type) {
 	case SKSE::MessagingInterface::kDataLoaded:
 		EventsHandler::GetSingleton()->Register();
+		Papyrus::Register();
+		Settings::GetSingleton()->ReadSettings();
 		break;
 	}
 }

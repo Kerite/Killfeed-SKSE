@@ -1,4 +1,0 @@
-$KillMessage	{} Killed {} at {}.
-$DeathMessage	{} is dead at {}.
-$KillMessageFormID	{} [0x{:X}] killed {} [0x{:X}] at {}.
-$DeathMessageFormID	{} [0x{:X}] is dead at {}.
