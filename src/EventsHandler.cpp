@@ -45,28 +45,23 @@ BSEventNotifyControl EventsHandler::ProcessEvent(const TESDeathEvent* a_event, B
 		}
 	}
 	auto dyingFormID = dying->GetFormID();
+	// Get the location name
 	auto dyingLocation = dying->GetCurrentLocation();
 	auto locationName = dyingLocation ? dyingLocation->GetFullName() : "???";
 
+	auto dyingPlaceHolder = fmt::format(Settings::ShowFormID ? fmt::runtime("{} [0x{:X}]") : fmt::runtime("{}"), dying->GetName(), dyingFormID);
+	std::string text;
 	auto& killer = a_event->actorKiller;
 
-	std::string text;
 	if (killer) {
-		auto killerFormID = killer->GetFormID();
+		FormID killerFormID = killer->GetFormID();
+
 		DEBUG("{} [FormID: 0x{:X}] killed by {} [FormID: 0x{:X}] at {}", dying->GetName(), dyingFormID, killer->GetName(), killerFormID, locationName);
-		if (Settings::ShowFormID) {
-			text = fmt::vformat(Translate(L"$KillMessageFormID"), fmt::make_format_args(killer->GetName(), killerFormID, dying->GetName(), dyingFormID, locationName));
-		} else {
-			text = fmt::vformat(Translate(L"$KillMessage"), fmt::make_format_args(killer->GetName(), dying->GetName(), locationName));
-		}
+		auto killerPlaceHolder = fmt::format(Settings::ShowFormID ? fmt::runtime("{} [0x{:X}]") : fmt::runtime("{}"), killer->GetName(), killerFormID);
+		text = fmt::format(fmt::runtime(Translate(L"$KillMessage")), killerPlaceHolder, dyingPlaceHolder, locationName);
 	} else {
 		DEBUG("{} [FormID: 0x{:X}] died at {}", dying->GetName(), dyingFormID, locationName);
-		if (Settings::ShowFormID) {
-			text = fmt::vformat(Translate(L"$KillMessageFormID"), fmt::make_format_args(dying->GetName(), dyingFormID, locationName));
-		} else {
-			text = fmt::vformat(Translate(L"$KillMessage"), fmt::make_format_args(dying->GetName(), locationName));
-		}
-		text = fmt::vformat(Translate(L"$DeathMessageFormID"), fmt::make_format_args(dying->GetName(), dyingFormID, locationName));
+		text = fmt::format(fmt::runtime(Translate(L"$DeathMessage")), dyingPlaceHolder, locationName);
 	}
 
 	DebugNotification(fmt::format("<font color='#{}'>{}</font>", Settings::KillFeedColor, text).c_str(), Settings::PlaySoundFX ? Settings::KillFeedSoundFx.c_str() : 0);

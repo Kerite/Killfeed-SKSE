@@ -59,6 +59,16 @@
                     "text": "$KillFeed_MCMSoundFX",
                     "type": "input",
                     "help": "$KillFeed_MCMSoundFXHelp"
+                },
+                {
+                    "id": "bDebugMode:Debug",
+                    "text": "$KillFeed_MCMDebugMode",
+                    "type": "toggle",
+                    "help": "$KillFeed_MCMDebugModeHelp",
+                    "valueOptions": {
+                        "sourceType": "ModSettingBool",
+                        "defaultValue": false
+                    }
                 }
             ]
         }

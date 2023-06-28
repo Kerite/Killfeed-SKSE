@@ -8,6 +8,7 @@ public:
 	static inline bool PlaySoundFX{ true };
 	static inline std::string KillFeedColor{ "FF0000" };
 	static inline std::string KillFeedSoundFx{ "UISneakAttack" };
+	static inline bool DebugMode{ false };
 
 	void ReadSettings();
 

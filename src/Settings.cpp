@@ -80,10 +80,14 @@ void LoadSettings(std::filesystem::path path)
 
 	ReadBoolean(mcm, "Sound", "bPlaySoundFX", Settings::PlaySoundFX);
 	ReadString(mcm, "Sound", "sSoundFx", Settings::KillFeedSoundFx);
+
+	ReadBoolean(mcm, "Debug", "bDebugMode", Settings::DebugMode);
 }
 
 void Settings::ReadSettings()
 {
 	LoadSettings(m_defaultPath);
 	LoadSettings(m_mcmPath);
+
+	dku::Logger::EnableDebug(DebugMode);
 }
